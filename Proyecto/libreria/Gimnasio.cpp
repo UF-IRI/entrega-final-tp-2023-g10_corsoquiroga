@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -32,7 +33,7 @@ int determinarHora() {
 }
 
 
-int anotarAclase(const string& clase, sClase *clase, sCliente *cliente){
+int anotarAclase(string clase, sClase *clase, sCliente *cliente){
 
     switch (clase){
     case "Spinning":
@@ -71,7 +72,7 @@ int anotarAclase(const string& clase, sClase *clase, sCliente *cliente){
 
 //ARCHIVOS
 eCodArchivos leerArchivoClase(std::fstream	*archi, sClase *clase){
-
+/*
     if(!archi->is_open())
         return eCodArchivos::ErrorApertura;
 
@@ -82,7 +83,36 @@ eCodArchivos leerArchivoClase(std::fstream	*archi, sClase *clase){
     }
 
     return eCodArchivos::ExitoOperacion;
-}
+*/
+        if (!archi->is_open()){
+            cout<<"Error abrir archivo";
+            return -1;
+        }
+
+        int N = 1;
+        sClase* clase = new clase[N];
+        stringstream ss;
+        string auxtipo, auxsala, header, line;
+        int auxcupoMax, auxhorario;
+        unsigned int auxID_Clase;
+
+        getline(archi, header);
+        while (archi){
+            getline(archi, line);
+            ss<<line;
+            getline(ss, auxID_Clase, ",");
+            clase[N].ID_Clase = auxID_Clase;
+            getline(ss, auxtipo, ",");
+            clase[N].tipo = auxtipo;
+            getline(ss, auxsala, ",");
+            clase[N].sala = auxsala;
+            getline(ss, auxcupoMax, ",");
+            clase[N].cupoMax = auxcupoMax;
+            getline(ss, auxhorario, ",");
+            clase[N].horario = auxhorario;
+            N++;
+        }
+    }
 
 eCodArchivos escribirArchivoClase(std::fstream	*archi, sClase *clase){
     if(!archi->is_open())
@@ -94,7 +124,7 @@ eCodArchivos escribirArchivoClase(std::fstream	*archi, sClase *clase){
 }
 
 eCodArchivos leerArchivoCliente(std::fstream *archi, sCliente *cliente){
-
+/*
     unsigned int auxId;
     string auxNombre, auxApellido, auxEmail, auxTelefono;
     float auxEstado;
@@ -117,7 +147,42 @@ eCodArchivos leerArchivoCliente(std::fstream *archi, sCliente *cliente){
     }
 
     return eCodArchivos::ExitoOperacion;
-}
+
+*/
+        if (!archi->is_open()){
+            cout<<"Error abrir archivo";
+            return -1;
+        }
+
+        int N = 1;
+        sClase* cliente = new cliente[N];
+        stringstream ss;
+        string auxnombre, auxapellido, auxemail, auxtelefono, header, line;
+        unsigned int auxID_Cliente;
+        time_t auxfechaNacimiento;
+        float auxestado;
+
+        getline(archi, header);
+        while (archi){
+            getline(archi, line);
+            ss<<line;
+            getline(ss, auxnombre, ",");
+            cliente[N].nombre = auxnombre;
+            getline(ss, auxapellido, ",");
+            cliente[N].apellido = auxapellido;
+            getline(ss, auxemail, ",");
+            cliente[N].email = auxemail;
+            getline(ss, auxtelefono, ",");
+            cliente[N].telefono = auxtelefono;
+            getline(ss, auxID_Cliente, ",");
+            cliente[N].ID_Cliente = auxID_Cliente;
+            getline(ss, auxfechaNacimiento, ",");
+            cliente[N].fechaNacimiento = auxfechaNacimiento;
+            getline(ss, auxestado, ",");
+            cliente[N].estado = auxestado;
+            N++;
+        }
+    }
 
 CodArchivos escribirArchivoCliente(std::fstream	*archi, sCliente *cliente){
 

@@ -29,7 +29,7 @@ struct Cliente {
 bool inscribirse();
 string determinarClase(int eleccion);
 int determinarHora();
-int anotarAclase(const string& clase, sClase *clase, sCliente*cliente);
+int anotarAclase(string clase, sClase *clase, sCliente* cliente);
 
 typedef enum codArchivos{ErrorApertura=-1, ErrorEscritura=0, ExitoOperacion=1} eCodArchivos;
 

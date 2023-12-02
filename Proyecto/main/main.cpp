@@ -4,7 +4,7 @@
 ../Users/Pili/Downloads/entrega-final-tp-2023-g10_corsoquiroga-main/entrega-final-tp-2023-g10_corsoquiroga-main/Proyecto/"asistencias_1697673600000";
  */
 #include <iostream>
-#include <agenda.h>
+#include <Gimnasio.h>
 #include <fstream>
 #include <string>
 
@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
         cout<<"7. Musculación"<<endl;
         eleccion = rand%(1,7);
         clase = determinarClase(elección);
-        int exitoso = Anotar clase(clase);
+        int exitoso = anotarAclase(clase, clase, cliente);
         if(exitoso == -1)
             cout<<"No pudimos anotar al cliente en la clase"<<endl;
         else
