@@ -24,6 +24,7 @@ int main(int argc, char *argv[]) {
     ofstream outClase;
     ifstream inCliente;
     ofstream outCliente;
+    ofstream outAsistencias("asistencias_1697673600000.dat", std::ios::binary);
     inClase.open("iriClasesGYM");
     outClase.open("iriClasesGYM");
     outCliente.open ("iriClientesGYM");

@@ -193,3 +193,11 @@ CodArchivos escribirArchivoCliente(std::fstream	*archi, sCliente *cliente){
 
     return eCodArchivos::ExitoOperacion;
 }
+
+eCodArchivos escribirArchivoAsistencia(std::fstream	*archi, sCliente *cliente, sClase *clase){
+
+    if (!archivo.is_open()) {
+        cout << "Error al abrir el archivo." << endl;
+        return -1;
+    }
+}

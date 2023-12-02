@@ -35,7 +35,12 @@ typedef enum codArchivos{ErrorApertura=-1, ErrorEscritura=0, ExitoOperacion=1} e
 
 eCodArchivos leerArchivoClase(std::fstream	*archi, sClase *clase);
 eCodArchivos escribirArchivoClase(std::fstream	*archi, sClase *clase);
+
 eCodArchivos leerArchivoCliente(std::fstream *archi, sCliente *cliente);
 eCodArchivos escribirArchivoCliente(std::fstream	*archi, sCliente *cliente);
+
+eCodArchivos escribirArchivoAsistencia(std::fstream	*archi, sCliente *cliente, sClase *clase);
+
+
 
 #endif // GIMNASIO_H
