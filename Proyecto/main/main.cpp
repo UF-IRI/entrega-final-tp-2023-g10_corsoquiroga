@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
 
     bool inscribir = true;
     int eleccion = 0;
-    string clase;
+    string Clase;
 
     cout<<"BIENVENIDO AL GIMNASIO MUSCULITO"<<endl;
 
@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
     sCliente * cliente= new sCliente();
 
     //clase->agregarContacto();
-
+    //prueba....
 
     while(inscribir){
         cout<<"¿A qué clase desea inscribirse?: "<<endl;
